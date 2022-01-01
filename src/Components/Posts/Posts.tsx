@@ -1,7 +1,6 @@
 import React from "react";
 import { Grid, CircularProgress } from "@material-ui/core";
 import Post from "./Post/Post";
-import useStyles from "./styles";
 import useContext from "../../Store/useStoreContext";
 
 const Posts = ({
@@ -11,7 +10,6 @@ const Posts = ({
 }) => {
   const { state } = useContext();
   const posts = state.store.posts;
-  const classes = useStyles();
 
   return !posts.length ? (
     <CircularProgress />

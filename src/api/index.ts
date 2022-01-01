@@ -2,14 +2,14 @@ import { nanoid } from "nanoid";
 import { Post } from "../types";
 
 export const fetchPosts = () =>
-  new Promise((resolve: (value: Post[]) => void, reject) => {
+  new Promise((resolve: (value: Post[]) => void) => {
     setTimeout(() => {
       const posts = localStorage.getItem("posts");
       resolve(posts ? JSON.parse(posts) : []);
     }, 1000);
   });
 export const createPost = (newPost: Post) =>
-  new Promise((resolve: (value: Post) => void, reject) => {
+  new Promise((resolve: (value: Post) => void) => {
     setTimeout(() => {
       const prevPosts: Post[] = localStorage.getItem("posts")
         ? JSON.parse(localStorage.getItem("posts") as string)
@@ -20,7 +20,7 @@ export const createPost = (newPost: Post) =>
     }, 1000);
   });
 export const likePost = (id: string) =>
-  new Promise((resolve: (value: Post) => void, reject) => {
+  new Promise((resolve: (value: Post) => void) => {
     setTimeout(() => {
       const prevPosts: Post[] = JSON.parse(
         localStorage.getItem("posts") as string
@@ -35,7 +35,7 @@ export const likePost = (id: string) =>
     }, 1000);
   });
 export const updatePost = (id: string, updatedPost: Post) =>
-  new Promise((resolve: (value: Post[]) => void, reject) => {
+  new Promise((resolve: (value: Post[]) => void) => {
     setTimeout(() => {
       const prevPosts: Post[] = JSON.parse(
         localStorage.getItem("posts") as string
@@ -50,7 +50,7 @@ export const updatePost = (id: string, updatedPost: Post) =>
     }, 1000);
   });
 export const deletePost = (id: string) =>
-  new Promise((resolve: (value: Post[]) => void, reject) => {
+  new Promise((resolve: (value: Post[]) => void) => {
     setTimeout(() => {
       const prevPosts: Post[] = JSON.parse(
         localStorage.getItem("posts") as string
